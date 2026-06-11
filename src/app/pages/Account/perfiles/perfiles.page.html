@@ -1,0 +1,153 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>perfiles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="AcountForm" (ngSubmit)="signIn()">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">perfiles</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <div class="login-card">
+      <div class="icon-container">
+     <img src="assets/icon/favicon.png" class="logo" alt="Logo" />
+     </div>
+    <ion-item>
+      <ion-label position="stacked"> Nombres: </ion-label>
+      <ion-note
+        [class.form-error-message]="isNameRequired || isNameMinLengthError"
+      >
+        *
+      </ion-note>
+      <ion-input
+        clearInput="true"
+        formControlName="Name"
+        [class.form-error-input]="isNameRequired || isNameMinLengthError"
+      >
+        aria-required="true" ></ion-input
+      >
+      @if (isNameRequired) {
+      <ion-text color="danger">
+        El Nombre es obligatorio.</ion-text
+      >
+      } @if(isNameMinLengthError) {
+      <ion-text color="danger">El Nombre  no es válido.</ion-text>
+      }
+    </ion-item>
+     <ion-item>
+      <ion-label position="stacked"> Apellidos </ion-label>    
+      <ion-input
+        clearInput="true"
+        formControlName="surnames"       
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked"> Direccion: </ion-label>    
+      <ion-input
+        clearInput="true"
+        formControlName="address"       
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked"> Numero Telefonico: </ion-label>
+      <ion-note
+          [class.form-error-message]="isPhoneRequired || isPhoneMinLengthError || isPhoneNumber"
+      >
+        *
+      </ion-note>
+      <ion-input
+        clearInput="true"
+        formControlName="phone"
+        [class.form-error-input]="isPhoneRequired || isPhoneMinLengthError || isPhoneNumber"
+      >
+        aria-required="true" ></ion-input
+      >
+      @if (isPhoneRequired) {
+      <ion-text color="danger">
+        El phone  es obligatorio.</ion-text
+      >
+      } @if(isPhoneMinLengthError) {
+      <ion-text color="danger">El phone  no es válido.</ion-text>
+      } @if(isPhoneNumber) {
+      <ion-text color="danger">El phone debe ser Numerico.</ion-text>
+      }
+      
+    </ion-item>
+
+      <ion-item>
+      <ion-label position="stacked">
+        Correo electronico:
+          </ion-label>
+        <ion-note
+          [class.form-error-message]="isEmailRequired || isEmailInvalid"
+        >
+          *
+        </ion-note>
+        <div>
+          <ion-input
+            type="email"
+            clearInput="true"
+            formControlName="email"
+            [class.form-error-input]="isEmailRequired || isEmailInvalid"
+            aria-required="true"
+          ></ion-input>
+        </div>
+        @if (isEmailRequired) {
+        <ion-text color="danger">
+          El correo electrónico es obligatorio.</ion-text
+        >
+        } @if(isEmailInvalid) {
+        <ion-text color="danger">El correo electrónico no es válido.</ion-text>
+        }
+    
+    </ion-item>
+    
+     <ion-item>
+      <ion-label position="stacked">
+        Contraseña:
+          </ion-label>
+        <ion-note
+          [class.form-error-message]="isPasswordRequired || isPasswordMinLengthError"
+        >
+          *
+        </ion-note>
+        <div>
+          <ion-input
+              labelPlacement="stacked"
+              type="password"
+              clearInput="true"
+              formControlName="password"
+              [class.form-error-input]="isPasswordRequired || isPasswordMinLengthError"
+              placeholder="Ingrese su contraseña"
+            >
+              <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+            </ion-input>
+        </div>
+        @if (isPasswordRequired) {
+        <ion-text color="danger">
+          El correo electrónico es obligatorio.</ion-text>
+        }  @if(isPasswordMinLengthError) {
+          <ion-text color="danger">
+            La contraseña debe tener al menos 5 caracteres.
+          </ion-text>
+          }
+    
+    </ion-item>
+
+      <ion-button
+      type="submit"
+      expand="block"
+      mode="ios"
+      [disabled]="!isFormValid || isLoading()"
+      [ariaDisabled]="!isFormValid || isLoading()"
+    >
+      @if(isLoading()){
+      <ion-spinner name="crescent" color="light"></ion-spinner>
+      } Guardar
+    </ion-button>
+    </div>
+  </form>
+</ion-content>

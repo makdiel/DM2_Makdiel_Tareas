@@ -45,3 +45,98 @@
 .form-error-input{
 border-color: red;
 }
+
+/* Centrar formulario */
+form {
+  padding: 20px;
+}
+
+.icon-container {
+  text-align: center;
+}
+
+.icon-container ion-icon {
+  font-size: 100px;
+}
+/* Separación entre campos */
+ion-item {
+  margin-bottom: 15px;
+  --background: #ffffff;
+  --border-radius: 12px;
+  --padding-start: 10px;
+  --inner-padding-end: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Etiquetas */
+ion-label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Inputs */
+ion-input {
+  margin-top: 5px;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  --padding-start: 10px;
+  font-size: 15px;
+}
+
+/* Mensajes de error */
+ion-text[color="danger"] {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+/* Input con error */
+.form-error-input {
+  border: 1px solid #dc3545;
+  border-radius: 8px;
+  padding: 2px;
+}
+
+/* Asterisco obligatorio */
+.form-error-message {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+/* Botón */
+ion-button {
+  margin-top: 25px;
+  height: 50px;
+  --border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Chips personalizados */
+.success-chip {
+  --background: #28a745;
+  color: white;
+}
+
+.warning-chip {
+  --background: #ffc107;
+  color: black;
+}
+
+.danger-chip {
+  --background: #dc3545;
+  color: white;
+}
+
+/* Contenedor de chips */
+ion-chip {
+  margin-top: 15px;
+  margin-right: 8px;
+  font-weight: 600;
+}
+
+/* Fondo general */
+ion-content {
+  --background: #f4f5f8;
+}
