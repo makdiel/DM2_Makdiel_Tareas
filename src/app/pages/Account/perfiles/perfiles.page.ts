@@ -58,7 +58,9 @@ export class PerfilesPage {
   // inject FormBuilder using the inject function and assign it to a private readonly property
   private readonly _formBuilder: FormBuilder = inject(FormBuilder);
   private readonly _toastService: ToastService = inject(ToastService);
-  private readonly _emailVerification : EmailVerificationService = inject(EmailVerificationService)
+  private readonly _emailVerification: EmailVerificationService = inject(
+    EmailVerificationService
+  );
 
   // create a FormGroup for the login form using the FormBuilder and assign it to a public property
   AcountForm: FormGroup = this._formBuilder.group({
@@ -74,7 +76,7 @@ export class PerfilesPage {
       ],
     ],
     email: ['', [Validators.required, Validators.email]], // add email validator to the email field
-    password: ['', [Validators.required,Validators.minLength(5)]],
+    password: ['', [Validators.required, Validators.minLength(5)]],
   });
   isLoading = signal(false);
 
@@ -127,13 +129,13 @@ export class PerfilesPage {
       : false;
   }
 
-   get isPasswordRequired(): boolean {
+  get isPasswordRequired(): boolean {
     const passwordControl = this.AcountForm.get('password');
     return passwordControl
       ? passwordControl.hasError('required') && passwordControl.touched
       : false;
   }
-   get isPasswordMinLengthError(): boolean {
+  get isPasswordMinLengthError(): boolean {
     const passwordControl = this.AcountForm.get('password');
     return passwordControl
       ? passwordControl.hasError('minlength') && passwordControl.touched
@@ -145,18 +147,20 @@ export class PerfilesPage {
     return this.AcountForm.valid;
   }
 
-   signIn(): void {
-      if (this.isFormValid) {
-        this.isLoading.set(true);
-        const emailData: EmailDto = {
-          method: 0,
-          ...this.AcountForm.value,
-        };
-        this._emailVerification.verificarEmail(emailData);
-        this.isLoading.set(false);
-      }
+  signIn(): void {
+    if (this.isFormValid) {
+      this.isLoading.set(true);
+      const emailData: EmailDto = {
+        method: 0,
+        ...this.AcountForm.value,
+      };
+      this._emailVerification.verificarEmail(emailData);
+      this._emailVerification.verificarToken(emailData);
+      this._emailVerification.CrearCuenta(emailData);
+      this.isLoading.set(false);
     }
- /* signIn(): void {
+  }
+  /* signIn(): void {
     if (this.isFormValid) {
       this.isLoading.set(true);
       const loginData = this.AcountForm.value;
