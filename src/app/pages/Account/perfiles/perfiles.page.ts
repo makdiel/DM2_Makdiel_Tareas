@@ -25,6 +25,7 @@ import {
 } from '@ionic/angular/standalone';
 import { ToastService } from 'src/app/services/toast.service';
 import { EmailDto } from 'src/app/dtos/user/email.dto';
+import { identifierDto } from 'src/app/dtos/user/identifier.dto';
 import { EmailVerificationService } from 'src/app/services/user/email-verification.service';
 
 @Component({
@@ -148,12 +149,19 @@ export class PerfilesPage {
   }
 
   signIn(): void {
+
+   //  const identifierData : identifierDto = { };
+
     if (this.isFormValid) {
       this.isLoading.set(true);
       const emailData: EmailDto = {
         method: 0,
         ...this.AcountForm.value,
+        
       };
+
+     
+
       this._emailVerification.verificarEmail(emailData);
       this._emailVerification.verificarToken(emailData);
       this._emailVerification.CrearCuenta(emailData);

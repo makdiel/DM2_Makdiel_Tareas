@@ -92,6 +92,7 @@ export class LoginPage {
       this.isLoading.set(false);
     }
   }
+
    //davidsan96@unitec.edu
    //123456
   /* signIn(): void {

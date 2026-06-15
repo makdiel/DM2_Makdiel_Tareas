@@ -24,19 +24,11 @@ export class AuthService {
       .post<TokenResponseDto>(`${API_URL}/login`, input)
       .subscribe({
         next: async (response: TokenResponseDto) => {
-          await this._preferenceService.set(
-            'accessToken',
-            response.accessToken
-          );
-          await this._preferenceService.set(
-            'refreshToken',
-            response.refreshToken
-          );
+          await this._preferenceService.set('accessToken',response.accessToken);
+          await this._preferenceService.set('refreshToken',response.refreshToken );
           await this._preferenceService.set('email', response.email);
           await this._preferenceService.set('userId', response.userId);
-          await this._toastService.showToast(
-            `Haz iniciado sesión como ${response.email}`
-          );
+          await this._toastService.showToast(`Haz iniciado sesión como ${response.email}` );
           this._router.navigate(['/tabs/home']);
         },
         error: async () => {

@@ -40,6 +40,12 @@ export const routes: Routes = [
     canActivate: [sesionActiveGuard],
   },
   {
+    path: 'profile',
+    loadComponent: () =>
+      import('./pages/Account/perfiles/perfiles.page').then((m) => m.PerfilesPage),
+    canActivate: [sesionActiveGuard],
+  },
+  {
     path: '',
     loadChildren: () =>
       import('./pages/shared/tabs/tabs.routes').then((m) => m.routes),

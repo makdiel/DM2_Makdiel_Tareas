@@ -26,7 +26,9 @@ import {
   openOutline,
 } from 'ionicons/icons';
 import { UserDto } from 'src/app/dtos/user/user.dto';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { AlertService } from 'src/app/services/shared/alert.service';
+import { PreferenceService } from 'src/app/services/shared/preference.service';
 import { ToastService } from 'src/app/services/toast.service';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -57,6 +59,9 @@ export class HomePage {
   //injecto el servicio para las alertas
   private readonly _alertService: AlertService = inject(AlertService);
   private readonly _userService: UserService = inject(UserService);
+   private readonly _preferenceService: PreferenceService =
+      inject(PreferenceService);
+  private readonly _authService : AuthService = inject(AuthService);
   users = this._userService.users;
 
   isAlertOpen = signal(false);
@@ -206,6 +211,11 @@ export class HomePage {
       'Alerta-Confirmation',
       'Confirmacion Service si o no?'
     );
+  }
+
+  //cerrar sesion
+  async closeSesion(): Promise<void>{
+    await this._authService.logout()
   }
 
   // Signal con número positivo mayor a 5
