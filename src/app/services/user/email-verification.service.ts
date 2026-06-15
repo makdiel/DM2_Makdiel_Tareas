@@ -6,6 +6,7 @@ import { UserDto } from 'src/app/dtos/user/user.dto';
 import { environment } from 'src/environments/environment.prod';
 import { EmailDto } from 'src/app/dtos/user/email.dto';
 import { Router } from '@angular/router';
+import { identifierDto } from 'src/app/dtos/user/identifier.dto';
 
 const API_URL = `${environment.API_URL}emailverifications`;
 const API_URL_TOKEN = `${environment.API_URL}verify`;
@@ -21,10 +22,12 @@ export class EmailVerificationService {
    private readonly _router: Router = inject(Router);
   email: WritableSignal<EmailDto | null> = signal(null);
 
+  identifier : WritableSignal <identifierDto | null> = signal(null);
+
    //metodo para post como debe ser
-    verificarEmail(email:EmailDto): void {
-      this._httpClient.post<EmailDto>(API_URL,email).subscribe ({
-        next: async (response: EmailDto) => {
+    verificarEmail(identifier:identifierDto): void {
+      this._httpClient.post<identifierDto>(API_URL,identifier).subscribe ({
+        next: async (response: identifierDto) => {
           await this._ToastService.showToast('Email Verificado');
           console.log(`Email Verificado: ${response}`);
          // this.email.set([...this.email(), response]);

@@ -80,6 +80,7 @@ export class PerfilesPage {
     password: ['', [Validators.required, Validators.minLength(5)]],
   });
   isLoading = signal(false);
+  emailPerfil = signal({});
 
   //Getters Name
   get isNameRequired(): boolean {
@@ -119,6 +120,7 @@ export class PerfilesPage {
   // getters for the email and password form controls to easily access them in the template
   get isEmailRequired(): boolean {
     const emailControl = this.AcountForm.get('email');
+    identifierDto : {this.AcountForm.get('email') };
     return emailControl
       ? emailControl.hasError('required') && emailControl.touched
       : false;
@@ -148,9 +150,14 @@ export class PerfilesPage {
     return this.AcountForm.valid;
   }
 
+   validarEmail(): void {
+    const dto = { email:  this.AcountForm.value.email };
+      this._emailVerification.verificarEmail(dto );
+      console.log(dto)
+  }
+
   signIn(): void {
 
-   //  const identifierData : identifierDto = { };
 
     if (this.isFormValid) {
       this.isLoading.set(true);
@@ -159,10 +166,7 @@ export class PerfilesPage {
         ...this.AcountForm.value,
         
       };
-
-     
-
-      this._emailVerification.verificarEmail(emailData);
+    
       this._emailVerification.verificarToken(emailData);
       this._emailVerification.CrearCuenta(emailData);
       this.isLoading.set(false);

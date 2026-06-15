@@ -2,6 +2,7 @@ export const environment = {
   production: true,
 
   //API_URL : 'https://jsonplaceholder.typicode.com/' ,
+  // https://ceutec-wallet-api.azurewebsites.net/api/
   API_URL: 'https://ceutec-wallet-api.azurewebsites.net/api/',
   FIREBASE_CONFIG : {
         projectId: 'wallet-mak-app',
