@@ -1,0 +1,74 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Registrar Perfiles </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="AcountForm" (ngSubmit)="signIn()">
+    <ion-item>
+      <ion-label position="stacked">
+        Correo electronico:
+        <ion-note
+          [class.form-error-message]="isEmailRequired || isEmailInvalid"
+        >
+          *
+        </ion-note>
+        <div>
+          <ion-input
+            type="email"
+            clearInput="true"
+            formControlName="email"
+            [class.form-error-input]="isEmailRequired || isEmailInvalid"
+            aria-required="true"
+          ></ion-input>
+        </div>
+        @if (isEmailRequired) {
+        <ion-text color="danger">
+          El correo electrónico es obligatorio.</ion-text
+        >
+        } @if(isEmailInvalid) {
+        <ion-text color="danger">El correo electrónico no es válido.</ion-text>
+        }
+      </ion-label>
+    </ion-item>
+
+    <!--
+    <ion-chip [disabled]="true">Sent</ion-chip>
+    <ion-chip [outline]="true">Approved</ion-chip>
+
+   
+  <ion-chip 
+    [ngClass]="{
+      'success-chip': sent() && approved(),
+      'warning-chip': !sent() && approved(),
+      'danger-chip': !sent() && !approved()
+    }">
+
+    <ion-label>
+      {{
+        sent() && approved()
+          ? 'Sent'
+          : !sent() && approved()
+          ? 'Ready to Sent'
+          : 'Pending'
+      }}
+
+    </ion-label>
+
+  </ion-chip>
+  -->
+
+    <ion-button
+      type="submit"
+      expand="block"
+      mode="ios"
+      [disabled]="!isFormValid || isLoading()"
+      [ariaDisabled]="!isFormValid || isLoading()"
+    >
+      @if(isLoading()){
+      <ion-spinner name="crescent" color="light"></ion-spinner>
+      } Ingresar
+    </ion-button>
+  </form>
+</ion-content>

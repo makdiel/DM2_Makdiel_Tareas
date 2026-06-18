@@ -30512,6 +30512,8 @@ var REQUEST_CONTEXT = new InjectionToken(typeof ngDevMode === "undefined" || ngD
 });
 
 export {
+  setCurrentInjector,
+  SIGNAL,
   __decorate,
   Subscription,
   pipe,
@@ -30555,8 +30557,6 @@ export {
   switchMap,
   takeUntil,
   tap,
-  setCurrentInjector,
-  SIGNAL,
   setAlternateWeakRefImpl,
   Version,
   VERSION,
@@ -31052,4 +31052,4 @@ export {
   RESPONSE_INIT,
   REQUEST_CONTEXT
 };
-//# sourceMappingURL=chunk-7425FHM4.js.map
+//# sourceMappingURL=chunk-7ICGLACI.js.map

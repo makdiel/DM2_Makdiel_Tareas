@@ -116,24 +116,44 @@
         </ion-note>
         <div>
           <ion-input
-              labelPlacement="stacked"
-              type="password"
+              labelPlacement="stacked"             
               clearInput="true"
-              formControlName="password"
-              [class.form-error-input]="isPasswordRequired || isPasswordMinLengthError"
-              placeholder="Ingrese su contraseña"
+              formControlName="password"            
+              placeholder="Ingrese una contraseña valida"
+            >
+              <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+            </ion-input>
+        </div>  
+         @if (isPasswordRequired) {
+        <ion-text color="danger">
+          La contraseña es obligatoria.</ion-text
+        >
+        } @if(isPasswordMinLengthError) {
+        <ion-text color="danger">La contraseña debe tener al menos 6 caracteres.</ion-text>
+        }      
+    
+    </ion-item>
+
+     <ion-item>
+      <ion-label position="stacked">
+        webToken:
+          </ion-label>
+        <ion-note
+          [class.form-error-message]="isPasswordRequired || isPasswordMinLengthError"
+        >
+          *
+        </ion-note>
+        <div>
+          <ion-input
+              labelPlacement="stacked"             
+              clearInput="true"
+              formControlName="token"
+              placeholder="Ingrese el token recibido por correo"
             >
               <ion-input-password-toggle slot="end"></ion-input-password-toggle>
             </ion-input>
         </div>
-        @if (isPasswordRequired) {
-        <ion-text color="danger">
-          El correo electrónico es obligatorio.</ion-text>
-        }  @if(isPasswordMinLengthError) {
-          <ion-text color="danger">
-            La contraseña debe tener al menos 5 caracteres.
-          </ion-text>
-          }
+       
     
     </ion-item>
 
@@ -156,6 +176,14 @@
       (click)="validarEmail()"
       >
       <ion-icon name="trash-outline"></ion-icon>Validar Email
+    </ion-button>
+      <ion-button
+      color="success"
+      slot="end"
+      type="button"
+      (click)="validarToken()"
+      >
+      <ion-icon name="trash-outline"></ion-icon>Validar Token
     </ion-button>
     </div>
   </form>

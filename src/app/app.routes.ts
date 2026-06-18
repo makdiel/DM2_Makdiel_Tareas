@@ -36,7 +36,7 @@ export const routes: Routes = [
   {
     path: 'register',
     loadComponent: () =>
-      import('./pages/auth/register/register.page').then((m) => m.RegisterPage),
+      import('./pages/Account/register/register.page').then((m) => m.RegisterPage),
     canActivate: [sesionActiveGuard],
   },
   {

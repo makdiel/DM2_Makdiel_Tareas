@@ -8,7 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import {
-  ActionSheetController,  
+  ActionSheetController,
   IonContent,
   IonInput,
   IonHeader,
@@ -23,13 +23,14 @@ import {
   IonButton,
 } from '@ionic/angular/standalone';
 import { ToastService } from 'src/app/services/toast.service';
+import { EmailVerificationService } from 'src/app/services/user/email-verification.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
   standalone: true,
-  imports: [    
+  imports: [
     IonButton,
     IonInput,
     IonSpinner,
@@ -54,28 +55,13 @@ export class RegisterPage {
   // inject FormBuilder using the inject function and assign it to a private readonly property
   private readonly _formBuilder: FormBuilder = inject(FormBuilder);
   private readonly _toastService: ToastService = inject(ToastService);
-
+   private readonly _emailVerification: EmailVerificationService = inject(
+      EmailVerificationService
+    );
   // create a FormGroup for the login form using the FormBuilder and assign it to a public property
   AcountForm: FormGroup = this._formBuilder.group({
-    StudentName: ['', [Validators.required, Validators.minLength(4)]], // es requerido
     email: ['', [Validators.required, Validators.email]], // add email validator to the email field
-    studentphone: [
-      '',
-      [
-        Validators.required,
-        Validators.pattern('^[0-9]{8}$'),
-        Validators.minLength(10),
-      ],
-    ], // add pattern validator to the phone field to allow only 10 digits
-    studentdni: [
-      '',
-      [
-        Validators.required,
-        Validators.pattern('^[0-9]{8}$'),
-        Validators.minLength(13),
-      ],
-    ], // add pattern validator to the phone field to allow only 13 digits
-    //StudentGenre: [''], // es requerido
+
     // password: ['', [Validators.required, Validators.minLength(6)]], // add minLength validator to the password field
   });
 
@@ -83,20 +69,6 @@ export class RegisterPage {
 
   sent = signal(false);
   approved = signal(false);
-
-  //Getters StudentName
-  get isEstudentNameRequired(): boolean {
-    const nameControl = this.AcountForm.get('StudentName');
-    return nameControl
-      ? nameControl.hasError('required') && nameControl.touched
-      : false;
-  }
-  get isEstudentNameMinLengthError(): boolean {
-    const nameLenControl = this.AcountForm.get('StudentName');
-    return nameLenControl
-      ? nameLenControl.hasError('minlength') && nameLenControl.touched
-      : false;
-  }
 
   // getters for the email and password form controls to easily access them in the template
   get isEmailRequired(): boolean {
@@ -112,46 +84,7 @@ export class RegisterPage {
       : false;
   }
 
-  //Getter StudentPhone
-  get isEstudentPhoneRequired(): boolean {
-    const namePhoneControl = this.AcountForm.get('studentphone');
-    return namePhoneControl
-      ? namePhoneControl.hasError('required') && namePhoneControl.touched
-      : false;
-  }
-  get isEstudentPhoneMinLengthError(): boolean {
-    const phoneLenControl = this.AcountForm.get('studentphone');
-    return phoneLenControl
-      ? phoneLenControl.hasError('minlength') && phoneLenControl.touched
-      : false;
-  }
-  get isEstudentPhoneNumber(): boolean {
-    const phoneNumberControl = this.AcountForm.get('studentphone');
-    return phoneNumberControl
-      ? phoneNumberControl.hasError('pattern') && phoneNumberControl.touched
-      : false;
-  }
-
-  //Getter Studentdni
-  get isEstudentDniRequired(): boolean {
-    const nameDniControl = this.AcountForm.get('studentdni');
-    return nameDniControl
-      ? nameDniControl.hasError('required') && nameDniControl.touched
-      : false;
-  }
-  get isEstudentDniMinLengthError(): boolean {
-    const dniLenControl = this.AcountForm.get('studentdni');
-    return dniLenControl
-      ? dniLenControl.hasError('minlength') && dniLenControl.touched
-      : false;
-  }
-  get isEstudentDniNumber(): boolean {
-    const dniNumberControl = this.AcountForm.get('studentdni');
-    return dniNumberControl
-      ? dniNumberControl.hasError('pattern') && dniNumberControl.touched
-      : false;
-  }
-
+  /*
   // getter password
   get isPasswordMinLengthError(): boolean {
     const passwordControl = this.AcountForm.get('password');
@@ -165,13 +98,19 @@ export class RegisterPage {
       ? passwordControl.hasError('required') && passwordControl.touched
       : false;
   }
-
+*/
   //getter form valido
   get isFormValid(): boolean {
     return this.AcountForm.valid;
   }
 
-  
+  validarEmail(): void {
+    const dto = this.AcountForm.value ;
+      this._emailVerification.verificarEmail(dto );
+      console.log(dto)
+  }
+
+
   signIn(): void {
     if (this.isFormValid) {
       this.isLoading.set(true);

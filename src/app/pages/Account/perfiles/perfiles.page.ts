@@ -27,6 +27,7 @@ import { ToastService } from 'src/app/services/toast.service';
 import { EmailDto } from 'src/app/dtos/user/email.dto';
 import { identifierDto } from 'src/app/dtos/user/identifier.dto';
 import { EmailVerificationService } from 'src/app/services/user/email-verification.service';
+import { tokenDto } from 'src/app/dtos/user/token.dto';
 
 @Component({
   selector: 'app-perfiles',
@@ -78,6 +79,7 @@ export class PerfilesPage {
     ],
     email: ['', [Validators.required, Validators.email]], // add email validator to the email field
     password: ['', [Validators.required, Validators.minLength(5)]],
+    token: [''],
   });
   isLoading = signal(false);
   emailPerfil = signal({});
@@ -156,6 +158,12 @@ export class PerfilesPage {
       console.log(dto)
   }
 
+   validarToken(): void {
+    const dto = { email: this.AcountForm.value.email, token: this.AcountForm.value.token };
+      this._emailVerification.verificarToken(dto );
+      console.log(dto)
+  }
+
   signIn(): void {
 
 
@@ -167,7 +175,7 @@ export class PerfilesPage {
         
       };
     
-      this._emailVerification.verificarToken(emailData);
+     //this._emailVerification.verificarToken(emailData);
       this._emailVerification.CrearCuenta(emailData);
       this.isLoading.set(false);
     }

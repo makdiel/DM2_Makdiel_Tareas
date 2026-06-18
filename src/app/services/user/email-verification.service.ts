@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment.prod';
 import { EmailDto } from 'src/app/dtos/user/email.dto';
 import { Router } from '@angular/router';
 import { identifierDto } from 'src/app/dtos/user/identifier.dto';
+import { tokenDto } from 'src/app/dtos/user/token.dto';
 
 const API_URL = `${environment.API_URL}emailverifications`;
 const API_URL_TOKEN = `${environment.API_URL}verify`;
@@ -39,9 +40,9 @@ export class EmailVerificationService {
       });
     }
 
-      verificarToken(email:EmailDto): void {
-      this._httpClient.post<EmailDto>(API_URL_TOKEN,email).subscribe ({
-        next: async (response: EmailDto) => {
+      verificarToken(token:tokenDto): void {
+      this._httpClient.post<tokenDto>(API_URL_TOKEN,token).subscribe ({
+        next: async (response: tokenDto) => {
           await this._ToastService.showToast('Token Verificado');
           console.log(`Token Verificado: ${response}`);
          // this.email.set([...this.email(), response]);
