@@ -66,7 +66,7 @@ export class PerfilesPage {
 
   // create a FormGroup for the login form using the FormBuilder and assign it to a public property
   AcountForm: FormGroup = this._formBuilder.group({
-    Name: ['', [Validators.required, Validators.minLength(4)]], // es requerido
+    names: ['', [Validators.required, Validators.minLength(4)]], // es requerido
     surnames: [''],
     address: [''],
     phoneNumber: [
@@ -79,7 +79,7 @@ export class PerfilesPage {
     ],
     email: ['', [Validators.required, Validators.email]], // add email validator to the email field
     password: ['', [Validators.required, Validators.minLength(5)]],
-    token: [''],
+    fcmToken: [''],
   });
   isLoading = signal(false);
   emailPerfil = signal({});
@@ -159,7 +159,7 @@ export class PerfilesPage {
   }
 
    validarToken(): void {
-    const dto = { email: this.AcountForm.value.email, token: this.AcountForm.value.token };
+    const dto = { email: this.AcountForm.value.email, token: this.AcountForm.value.fcmToken };
       this._emailVerification.verificarToken(dto );
       console.log(dto)
   }

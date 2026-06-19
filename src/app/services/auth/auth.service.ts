@@ -30,6 +30,7 @@ export class AuthService {
           await this._preferenceService.set('userId', response.userId);
           await this._toastService.showToast(`Haz iniciado sesión como ${response.email}` );
           this._router.navigate(['/tabs/home']);
+          console.log(response);
         },
         error: async () => {
           this._toastService.showToast('Error al iniciar sesión', true);

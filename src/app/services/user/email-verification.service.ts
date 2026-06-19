@@ -10,7 +10,7 @@ import { identifierDto } from 'src/app/dtos/user/identifier.dto';
 import { tokenDto } from 'src/app/dtos/user/token.dto';
 
 const API_URL = `${environment.API_URL}emailverifications`;
-const API_URL_TOKEN = `${environment.API_URL}verify`;
+const API_URL_TOKEN = `${environment.API_URL}emailverifications/verify`;
 const API_URL_ACCOUNT = `${environment.API_URL}accounts`;
 
 @Injectable({

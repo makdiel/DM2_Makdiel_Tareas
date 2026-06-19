@@ -24,7 +24,7 @@
       </ion-note>
       <ion-input
         clearInput="true"
-        formControlName="Name"
+        formControlName="names"
         [class.form-error-input]="isNameRequired || isNameMinLengthError"
       >
         aria-required="true" ></ion-input
@@ -136,7 +136,7 @@
 
      <ion-item>
       <ion-label position="stacked">
-        webToken:
+        FCM Token:
           </ion-label>
         <ion-note
           [class.form-error-message]="isPasswordRequired || isPasswordMinLengthError"
@@ -147,7 +147,7 @@
           <ion-input
               labelPlacement="stacked"             
               clearInput="true"
-              formControlName="token"
+              formControlName="fcmToken"
               placeholder="Ingrese el token recibido por correo"
             >
               <ion-input-password-toggle slot="end"></ion-input-password-toggle>
