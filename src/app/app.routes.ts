@@ -34,9 +34,9 @@ export const routes: Routes = [
     canActivate: [sesionActiveGuard],
   },
   {
-    path: 'register',
+    path: 'store',
     loadComponent: () =>
-      import('./pages/Account/register/register.page').then((m) => m.RegisterPage),
+      import('./pages/store/stores/stores.page').then((m) => m.StoresPage),
     canActivate: [sesionActiveGuard],
   },
   {
@@ -61,5 +61,10 @@ export const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full',
   },
+  {
+    path: 'stores',
+    loadComponent: () => import('./pages/store/stores/stores.page').then( m => m.StoresPage)
+  },
+
 
 ];

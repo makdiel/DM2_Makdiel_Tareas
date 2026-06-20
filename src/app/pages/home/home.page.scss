@@ -25,3 +25,145 @@
 #container a {
   text-decoration: none;
 }
+ion-content{
+
+  --background:#f5f5f5;
+
+}
+
+.header{
+
+  background:#34009a;
+  padding:55px 20px 40px;
+  border-bottom-left-radius:25px;
+  border-bottom-right-radius:25px;
+
+}
+
+.user-info{
+
+  display:flex;
+  align-items:center;
+  margin-bottom:25px;
+
+}
+
+.user-info ion-avatar{
+
+  width:55px;
+  height:55px;
+  margin-right:15px;
+
+}
+
+.welcome span{
+
+  color:white;
+  opacity:.8;
+
+}
+
+.welcome h2{
+
+  color:white;
+  font-size:26px;
+  margin:0;
+
+}
+
+.balance-card{
+
+  background:linear-gradient(180deg,#5515d8,#3b0cb4);
+  border-radius:25px;
+  padding:25px;
+  color:white;
+
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+}
+
+.balance-card p{
+
+  text-align:center;
+  opacity:.8;
+  margin-bottom:10px;
+
+}
+
+.balance-card h1{
+
+  text-align:center;
+  font-size:44px;
+  margin-bottom:25px;
+
+}
+
+.balance-card span{
+
+  font-size:24px;
+
+}
+
+.actions{
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+}
+
+.action{
+
+  flex:1;
+  text-align:center;
+
+}
+
+.action ion-icon{
+
+  font-size:26px;
+  margin-bottom:8px;
+
+}
+
+.divider{
+
+  width:1px;
+  height:45px;
+  background:rgba(255,255,255,.3);
+
+}
+
+.transactions{
+
+  margin-top:25px;
+
+}
+
+.transactions h2{
+
+  text-align:center;
+  margin-bottom:20px;
+  font-weight:700;
+
+}
+
+ion-item{
+
+  margin:10px 15px;
+  border-radius:15px;
+  --background:white;
+
+}
+
+.negative{
+
+  color:#9b5d72;
+
+}
+
+.positive{
+
+  color:#47a26d;
+
+}

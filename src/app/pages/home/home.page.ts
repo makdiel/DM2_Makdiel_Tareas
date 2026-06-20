@@ -12,18 +12,19 @@ import {
   IonAlert,
   AlertController,
   IonItem,
-  IonIcon,
-} from '@ionic/angular/standalone';
+  IonIcon, IonAvatar } from '@ionic/angular/standalone';
 import { ActionSheetController, IonButton } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import {
   text,
+  logoBitcoin,
   checkmarkCircle,
   closeCircle,
   pencilOutline,
   addCircleOutline,
   trashOutline,
   openOutline,
+  logOutOutline
 } from 'ionicons/icons';
 import { UserDto } from 'src/app/dtos/user/user.dto';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -31,13 +32,13 @@ import { AlertService } from 'src/app/services/shared/alert.service';
 import { PreferenceService } from 'src/app/services/shared/preference.service';
 import { ToastService } from 'src/app/services/toast.service';
 import { UserService } from 'src/app/services/user/user.service';
-
+import { LoginDto } from 'src/app/dtos/auth/login.dto';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [
+  imports: [IonAvatar, 
     IonIcon,
     IonItem,
     IonToast,
@@ -63,6 +64,7 @@ export class HomePage {
       inject(PreferenceService);
   private readonly _authService : AuthService = inject(AuthService);
   users = this._userService.users;
+  login = this._authService.login;
 
   isAlertOpen = signal(false);
   //creo el evento click para setear la señan en true
@@ -89,6 +91,10 @@ export class HomePage {
 
   getUser(id: number): void {
     this._userService.getUser(id);
+  }
+
+   getLogin(): void {
+    
   }
 
   deleteUser(id: number): void {
@@ -137,6 +143,7 @@ export class HomePage {
         'add-circle-outline': addCircleOutline,
         'trash-outline': trashOutline,
         'open-outline': openOutline,
+        'log-out' : logOutOutline,
       });
   }
   async presentActionSheet() {

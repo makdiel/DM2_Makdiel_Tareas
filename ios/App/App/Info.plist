@@ -64,6 +64,10 @@
 	<string>La aplicación necesita acceso a tu biblioteca de fotos para guardar fotos de tu perfil y adjuntar fotos de documentos.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>La aplicación necesita acceso a tu biblioteca de fotos para seleccionar fotos de perfil y adjuntar fotos de documentos.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>La aplicacion necesita permisos para la geolocalizacion</string>
+	 <key>NSLocationWhenInUseUsageDescription</key>
+ 	<string>La aplicacion necesita permisos para la geolocalizacion</string>
 	<true/>
 </dict>
 </plist>

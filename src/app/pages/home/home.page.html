@@ -1,18 +1,39 @@
+
+
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title> Blanko </ion-title>
+   
+      <div class="ion-text-end">
+    <!-- <ion-button (click)="presentActionSheet()">Open </ion-button> -->
+    <ion-button
+      slot="end"
+      expand="outline"
+      color="transparent"
+      (click)="closeSesion()"    >
+      <ion-icon name="log-out"></ion-icon>
+    </ion-button>
+  </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+   <!-- Saludo -->
+    <div class="header">
+     
+      <ion-avatar>
+        <img src="/assets/mi-espacio.png">
+      </ion-avatar>
 
-  <ion-button (click)="presentActionSheet()">Open</ion-button>
+      <div class="welcome">
+        <span>Hola</span>
+        <h2>Christian!</h2>
+      </div>
 
+      
+    </div>
+
+  <!--Abri toast por medio de señanels-->
+ 
   <!--Abrir toast por medio del ID del button, y el trigger en el toast-->
   <ion-button color="warning" id="welcome-toast" expand="block"
     >Open toast</ion-button
@@ -79,8 +100,7 @@
   <ion-button color="primary" (click)="showAlertService()" expand="block"
     >Open AlertConfirmation AlertServices
     <ion-icon name="add-circle-outline"></ion-icon>
-    </ion-button
-  >
+  </ion-button>
 
   <!--
    <h2>Números</h2>
@@ -102,29 +122,23 @@
   </ion-button> 
 -->
   <div>
-<ion-button color="primary" (click)="createUser()" >
-    <ion-icon name="add-circle-outline"></ion-icon>Crear
-    </ion-button
-  >
+    <ion-button color="primary" (click)="createUser()">
+      <ion-icon name="add-circle-outline"></ion-icon>Crear
+    </ion-button>
   </div>
-
-   <div>
-<ion-button color="primary" (click)="closeSesion()" >
-    <ion-icon name="add-circle-outline"></ion-icon>Cerrar Sesion
-    </ion-button
-  >
-  </div>
-  
 
   @for (user of users(); track $index) {
   <ion-item>
     {{ user.name}}
-    <ion-button slot="end" type="button" (click)="getUser(user.id)"
-      >
+    <ion-button slot="end" type="button" (click)="getUser(user.id)">
       <ion-icon name="chekmark-circle"></ion-icon> Ver
     </ion-button>
-     <ion-button color="warning" slot="end" type="button" (click)="updateUser(user)"
-      >
+    <ion-button
+      color="warning"
+      slot="end"
+      type="button"
+      (click)="updateUser(user)"
+    >
       <ion-icon name="open-outline"></ion-icon> Actualizar
     </ion-button>
     <ion-button
@@ -132,7 +146,7 @@
       slot="end"
       type="button"
       (click)="deleteUser(user.id)"
-      >
+    >
       <ion-icon name="trash-outline"></ion-icon>Borrar
     </ion-button>
   </ion-item>
