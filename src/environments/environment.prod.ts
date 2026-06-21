@@ -6,7 +6,6 @@ export const environment = {
   CLOUDINARY_URL_API: 'https://api.cloudinary.com/v1_1/dvdt7mzdc',
   CLOUDINARY_UPLOAD_PRESET: 'cloud-makdiel',
   //dvdt7mzdc
-  
   API_URL: 'https://ceutec-wallet-api.azurewebsites.net/api/',
   FIREBASE_CONFIG : {
         projectId: 'wallet-mak-app',

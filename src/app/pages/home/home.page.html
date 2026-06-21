@@ -129,7 +129,7 @@
 
   @for (user of users(); track $index) {
   <ion-item>
-    {{ user.name}}
+    {{ user.names}}
     <ion-button slot="end" type="button" (click)="getUser(user.id)">
       <ion-icon name="chekmark-circle"></ion-icon> Ver
     </ion-button>

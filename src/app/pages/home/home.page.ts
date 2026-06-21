@@ -12,8 +12,11 @@ import {
   IonAlert,
   AlertController,
   IonItem,
-  IonIcon, IonAvatar } from '@ionic/angular/standalone';
-import { ActionSheetController, IonButton } from '@ionic/angular/standalone';
+  IonIcon,
+  IonAvatar,
+  ActionSheetController,
+  IonButton,
+} from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import {
   text,
@@ -24,7 +27,10 @@ import {
   addCircleOutline,
   trashOutline,
   openOutline,
-  logOutOutline
+  logOutOutline,
+  arrowUpOutline,
+  arrowDownOutline,
+  swapHorizontalOutline,
 } from 'ionicons/icons';
 import { UserDto } from 'src/app/dtos/user/user.dto';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -38,7 +44,8 @@ import { LoginDto } from 'src/app/dtos/auth/login.dto';
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonAvatar, 
+  imports: [
+    IonAvatar,
     IonIcon,
     IonItem,
     IonToast,
@@ -60,9 +67,9 @@ export class HomePage {
   //injecto el servicio para las alertas
   private readonly _alertService: AlertService = inject(AlertService);
   private readonly _userService: UserService = inject(UserService);
-   private readonly _preferenceService: PreferenceService =
-      inject(PreferenceService);
-  private readonly _authService : AuthService = inject(AuthService);
+  private readonly _preferenceService: PreferenceService =
+    inject(PreferenceService);
+  private readonly _authService: AuthService = inject(AuthService);
   users = this._userService.users;
   login = this._authService.login;
 
@@ -93,9 +100,9 @@ export class HomePage {
     this._userService.getUser(id);
   }
 
-   getLogin(): void {
-    
-  }
+  /* getUsers(): void {
+     this._userService.getUser;
+  }*/
 
   deleteUser(id: number): void {
     this._userService.confirmDeleteUser(id);
@@ -104,26 +111,13 @@ export class HomePage {
   createUser(): void {
     const newUser: UserDto = {
       id: 0,
-      name: 'John duton',
-      username: 'johndut',
+      names: 'John duton',
+      surnames: 'johndut',
       email: 'johnd@example.com',
-      addres: {
-        street: '454 Main St',
-        suite: 'Apt 5',
-        city: 'DownTown',
-        zipcode: '12453',
-        geo: {
-          lat: '0.000',
-          lng: '0.455',
-        },
-        phone: '551-454-54',
-        website: 'site,com',
-        company: {
-          name: 'compay',
-          catchPhrase: '45',
-          bs: 'bs',
-        },
-      },
+      address: 'direccion',
+      phoneNumber: '551-454-54',
+      imageProfile: 'site,com',
+      fcmToken: '',
     };
     this._userService.createUser(newUser);
   }
@@ -131,9 +125,10 @@ export class HomePage {
   updateUser(user: UserDto): void {
     this._userService.updateUser({
       ...user,
-      name: 'Makdiel Tabora',
+      names: 'Makdiel Tabora',
     });
   }
+
   constructor(private actionSheetCtrl: ActionSheetController) {
     this._userService.getUsers(),
       addIcons({
@@ -143,7 +138,10 @@ export class HomePage {
         'add-circle-outline': addCircleOutline,
         'trash-outline': trashOutline,
         'open-outline': openOutline,
-        'log-out' : logOutOutline,
+        'log-out': logOutOutline,
+        arrowUpOutline,
+        arrowDownOutline,
+        swapHorizontalOutline,
       });
   }
   async presentActionSheet() {
@@ -221,8 +219,8 @@ export class HomePage {
   }
 
   //cerrar sesion
-  async closeSesion(): Promise<void>{
-    await this._authService.logout()
+  async closeSesion(): Promise<void> {
+    await this._authService.logout();
   }
 
   // Signal con número positivo mayor a 5

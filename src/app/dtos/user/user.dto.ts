@@ -1,26 +1,14 @@
 export interface UserDto {
     id: number;
-    name: string;
-    username: string;
+    names: string;
+    surnames: string;
     email: string;
-    addres: {
-        street: string;
-        suite:string;
-        city: string;
-        zipcode: string;
-        geo:{
-            lat: string;
-            lng: string;
-        };
-    phone: string;
-    website: string;
-    company: {
-        name: string;
-        catchPhrase: string;
-        bs: string;
+    phoneNumber: string;
+    address: string;
+    imageProfile : string;
+    fcmToken: string;
     };
-    };
-}
+
 
 
  // id?: number;

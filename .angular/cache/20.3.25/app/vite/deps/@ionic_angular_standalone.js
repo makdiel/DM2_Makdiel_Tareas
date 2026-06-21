@@ -1,36 +1,4 @@
 import {
-  a,
-  c as c3,
-  o as o3
-} from "./chunk-NCBV44CJ.js";
-import {
-  o as o4
-} from "./chunk-JOQNI6T3.js";
-import {
-  h,
-  i as i3,
-  s as s4
-} from "./chunk-Q7PV5YUG.js";
-import {
-  t as t5
-} from "./chunk-7C6JS6MP.js";
-import {
-  i as i5,
-  r as r3,
-  t as t4
-} from "./chunk-AN4BRTIS.js";
-import {
-  a as a2,
-  e as e3,
-  f as f3,
-  h as h2,
-  i as i4,
-  l as l4,
-  n as n3,
-  p as p2,
-  t as t3
-} from "./chunk-EGLBSQUO.js";
-import {
   e as e4
 } from "./chunk-4SKD3W26.js";
 import {
@@ -53,9 +21,41 @@ import {
   v as v2
 } from "./chunk-OZUTUWSQ.js";
 import {
+  a,
+  c as c3,
+  o as o3
+} from "./chunk-NCBV44CJ.js";
+import {
+  o as o4
+} from "./chunk-JOQNI6T3.js";
+import {
+  h,
+  i as i3,
+  s as s4
+} from "./chunk-Q7PV5YUG.js";
+import {
+  t as t5
+} from "./chunk-7C6JS6MP.js";
+import {
+  i as i5,
+  r as r3,
+  t as t4
+} from "./chunk-AN4BRTIS.js";
+import {
   d,
   o as o2
 } from "./chunk-FBOO75ZN.js";
+import {
+  a as a2,
+  e as e3,
+  f as f3,
+  h as h2,
+  i as i4,
+  l as l4,
+  n as n3,
+  p as p2,
+  t as t3
+} from "./chunk-EGLBSQUO.js";
 import {
   T,
   _,
@@ -98,10 +98,6 @@ import {
   u
 } from "./chunk-UH32AR35.js";
 import {
-  NG_VALUE_ACCESSOR,
-  NgControl
-} from "./chunk-PQORL2PO.js";
-import {
   ActivatedRoute,
   ChildrenOutletContexts,
   NavigationCancel,
@@ -111,22 +107,25 @@ import {
   Router,
   RouterLink,
   UrlSerializer
-} from "./chunk-OQFU626I.js";
-import "./chunk-S6CHE7GB.js";
-import "./chunk-AKHX5NDH.js";
+} from "./chunk-WKRWSKY6.js";
+import {
+  NG_VALUE_ACCESSOR,
+  NgControl
+} from "./chunk-MLJLY45K.js";
+import "./chunk-6SDQ547S.js";
+import "./chunk-GXUILUQ5.js";
 import {
   CommonModule,
   Location,
   LocationStrategy,
   NgIf,
   NgTemplateOutlet
-} from "./chunk-MWCMXFSP.js";
+} from "./chunk-UIOR2WWC.js";
 import "./chunk-EFUI5DNY.js";
 import {
   APP_INITIALIZER,
   ApplicationRef,
   Attribute,
-  BehaviorSubject,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -147,23 +146,15 @@ import {
   Optional,
   Output,
   SkipSelf,
-  Subject,
   TemplateRef,
   ViewChild,
   ViewContainerRef,
-  __decorate,
-  combineLatest,
   createComponent,
-  distinctUntilChanged,
-  filter,
   forwardRef,
-  fromEvent,
   inject,
   makeEnvironmentProviders,
-  of,
   reflectComponentType,
   setClassMetadata,
-  switchMap,
   ɵɵInheritDefinitionFeature,
   ɵɵNgOnChangesFeature,
   ɵɵProvidersFeature,
@@ -193,7 +184,21 @@ import {
   ɵɵrestoreView,
   ɵɵtemplate,
   ɵɵviewQuery
-} from "./chunk-7ICGLACI.js";
+} from "./chunk-NJ4RT5RQ.js";
+import "./chunk-UQGLAMHP.js";
+import {
+  fromEvent
+} from "./chunk-576P5TAG.js";
+import {
+  BehaviorSubject,
+  Subject,
+  __decorate,
+  combineLatest,
+  distinctUntilChanged,
+  filter,
+  of,
+  switchMap
+} from "./chunk-2K3BB2X3.js";
 import {
   __async,
   __objRest,
@@ -5535,7 +5540,7 @@ var d7 = Dn(class extends I {
       const t16 = s5(window, "hybrid");
       if (n.getBoolean("_testing") || import("./p-BgwEQWW6-4BDGVPWV.js").then(((t17) => t17.startTapClick(n))), n.getBoolean("statusTap", t16) && import("./p-CneGxKsZ-2QWBIQLO.js").then(((t17) => t17.startStatusTap())), n.getBoolean("inputShims", m7())) {
         const t17 = s5(window, "ios") ? "ios" : "android";
-        import("./p-Cwv-vmkN-AA2UQH2Z.js").then(((e17) => e17.startInputShims(n, t17)));
+        import("./p-Cwv-vmkN-F33DFGAZ.js").then(((e17) => e17.startInputShims(n, t17)));
       }
       const e16 = yield import("./p-vEbVo2hO-DYVJ7JVE.js"), i16 = t16 || o3();
       n.getBoolean("hardwareBackButton", i16) ? e16.startHardwareBackButton() : (o3() && u("[ion-app] - experimentalCloseWatcher was set to `true`, but hardwareBackButton was set to `false`. Both config options must be `true` for the Close Watcher API to be used."), e16.blockHardwareBackButton()), "undefined" != typeof window && import("./p-D6Ynv7Xh-ST6HJO3M.js").then(((t17) => t17.startKeyboardAssist(window))), import("./p-BmVRXR1y-YTKZTMUC.js").then(((t17) => this.focusVisible = t17.startFocusVisible()));

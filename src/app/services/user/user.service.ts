@@ -5,7 +5,7 @@ import { ToastService } from '../toast.service';
 import { UserDto } from 'src/app/dtos/user/user.dto';
 import { AlertService } from '../shared/alert.service';
 
-const API_URL = `${environment.API_URL}users`;
+const API_URL = `${environment.API_URL}user`;
 //const API_URL: string =`${environment.API_URL}users`;
 
 @Injectable({
