@@ -1,7 +1,4 @@
 import {
-  d
-} from "./chunk-FBOO75ZN.js";
-import {
   d as d2
 } from "./chunk-4QUALYAX.js";
 import {
@@ -11,6 +8,9 @@ import {
   n,
   u
 } from "./chunk-UH32AR35.js";
+import {
+  d
+} from "./chunk-FBOO75ZN.js";
 import {
   __async
 } from "./chunk-WDMUDEB6.js";
@@ -214,7 +214,7 @@ var b = (n3) => {
   e.classList.remove("ion-page-invisible"), e.style.removeProperty("pointer-events"), void 0 !== i2 && (i2.classList.remove("ion-page-invisible"), i2.style.removeProperty("pointer-events")), w(e);
 };
 var h2 = (n3) => __async(null, null, function* () {
-  if (n3.leavingEl && n3.animated && 0 !== n3.duration) return n3.animationBuilder ? n3.animationBuilder : "ios" === n3.mode ? (yield import("./p-CBzELu-H-ANY3SR3D.js")).iosTransitionAnimation : (yield import("./p-CU1SSH8_-NQINOQSO.js")).mdTransitionAnimation;
+  if (n3.leavingEl && n3.animated && 0 !== n3.duration) return n3.animationBuilder ? n3.animationBuilder : "ios" === n3.mode ? (yield import("./p-CBzELu-H-FFX66L6U.js")).iosTransitionAnimation : (yield import("./p-CU1SSH8_-EA5HIWHL.js")).mdTransitionAnimation;
 });
 var y = (n3, e) => __async(null, null, function* () {
   yield k(e, true);
@@ -299,4 +299,4 @@ export {
   D,
   x
 };
-//# sourceMappingURL=chunk-OZUTUWSQ.js.map
+//# sourceMappingURL=chunk-2S2P52YH.js.map

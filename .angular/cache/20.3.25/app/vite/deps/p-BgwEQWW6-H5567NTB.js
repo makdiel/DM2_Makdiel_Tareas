@@ -1,10 +1,10 @@
 import {
-  o
-} from "./chunk-FBOO75ZN.js";
-import {
   w
 } from "./chunk-4QUALYAX.js";
 import "./chunk-UH32AR35.js";
+import {
+  o
+} from "./chunk-FBOO75ZN.js";
 import "./chunk-WDMUDEB6.js";
 
 // node_modules/@ionic/core/components/p-BgwEQWW6.js
@@ -78,4 +78,4 @@ var f = 150;
 export {
   o2 as startTapClick
 };
-//# sourceMappingURL=p-BgwEQWW6-4BDGVPWV.js.map
+//# sourceMappingURL=p-BgwEQWW6-H5567NTB.js.map

@@ -1,4 +1,8 @@
 import {
+  isPlatformServer
+} from "./chunk-UIOR2WWC.js";
+import "./chunk-EFUI5DNY.js";
+import {
   Component,
   ErrorFactory,
   FirebaseApp,
@@ -21,10 +25,6 @@ import {
   ɵzoneWrap
 } from "./chunk-W272ATM4.js";
 import {
-  isPlatformServer
-} from "./chunk-UIOR2WWC.js";
-import "./chunk-EFUI5DNY.js";
-import {
   InjectionToken,
   Injector,
   NgModule,
@@ -36,8 +36,8 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule
 } from "./chunk-NJ4RT5RQ.js";
-import "./chunk-UQGLAMHP.js";
 import "./chunk-576P5TAG.js";
+import "./chunk-UQGLAMHP.js";
 import {
   concatMap,
   distinct,

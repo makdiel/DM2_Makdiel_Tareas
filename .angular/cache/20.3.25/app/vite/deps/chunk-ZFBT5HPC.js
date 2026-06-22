@@ -551,7 +551,8 @@ var SystemBars = registerPlugin("SystemBars", {
 });
 
 export {
+  CapacitorException,
   registerPlugin,
   WebPlugin
 };
-//# sourceMappingURL=chunk-6N3Y4XHO.js.map
+//# sourceMappingURL=chunk-ZFBT5HPC.js.map

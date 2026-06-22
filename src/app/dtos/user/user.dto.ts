@@ -4,9 +4,9 @@ export interface UserDto {
     surnames: string;
     email: string;
     phoneNumber: string;
-    address: string;
-    imageProfile : string;
-    fcmToken: string;
+    address: string | null; 
+    imageProfile : string | null;
+    fcmToken: string | null;
     };
 
 

@@ -1,7 +1,7 @@
 import {
   r,
   x
-} from "./chunk-OZUTUWSQ.js";
+} from "./chunk-2S2P52YH.js";
 
 // node_modules/@ionic/core/components/p-CU1SSH8_.js
 var i = (i2, r2) => {
@@ -24,4 +24,4 @@ var i = (i2, r2) => {
 export {
   i
 };
-//# sourceMappingURL=chunk-MH5FLJTZ.js.map
+//# sourceMappingURL=chunk-7GU4EKU3.js.map

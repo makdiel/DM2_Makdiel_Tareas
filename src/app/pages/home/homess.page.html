@@ -1,0 +1,154 @@
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+   
+      <div class="ion-text-end">
+    <!-- <ion-button (click)="presentActionSheet()">Open </ion-button> -->
+    <ion-button
+      slot="end"
+      expand="outline"
+      color="transparent"
+      (click)="closeSesion()"    >
+      <ion-icon name="log-out"></ion-icon>
+    </ion-button>
+  </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+   <!-- Saludo -->
+    <div class="header">
+     
+      <ion-avatar>
+        <img src="/assets/mi-espacio.png">
+      </ion-avatar>
+
+      <div class="welcome">
+        <span>Hola</span>
+        <h2>Christian!</h2>
+      </div>
+
+      
+    </div>
+
+  <!--Abri toast por medio de señanels-->
+ 
+  <!--Abrir toast por medio del ID del button, y el trigger en el toast-->
+  <ion-button color="warning" id="welcome-toast" expand="block"
+    >Open toast</ion-button
+  >
+  <ion-toast
+    trigger="welcome-toast"
+    message="Mostrando un Mensaje tipo Toast"
+    color="success"
+    duration="6000"
+  ></ion-toast>
+
+  <!--Abri toast por medio de señanels-->
+  <ion-button color="primary" (click)="openOrCloseToast()" expand="block"
+    >Open toast Signal</ion-button
+  >
+  <ion-toast
+    [isOpen]="openToast()"
+    message="Mostrando un Mensaje tipo Toast desde una señal"
+    color="success"
+    duration="6000"
+    (didDismiss)="openOrCloseToast()"
+  >
+  </ion-toast>
+
+  <!--Abri toast por medio de señanels-->
+  <ion-button color="primary" (click)="openToastController()" expand="block"
+    >Open toast TotasController</ion-button
+  >
+  <!--Abrir un ionAlert mediante un controlador -->
+  <ion-button color="primary" (click)="showToast()" expand="block"
+    >Open Toast-Service</ion-button
+  >
+
+  <!--Abrir un ionAlert mediante un trigger -->
+  <ion-button color="primary" id="mostrar-alerta" expand="block"
+    >Open AlertConfirmation trigger</ion-button
+  >
+  <ion-alert
+    trigger="mostrar-alerta"
+    header="Alerta"
+    subHeader="?Esta seguro de la Alerta?"
+    message="Si muestras la alerta, se mostrara"
+    [buttons]="alertButtons"
+  ></ion-alert>
+
+  <!--Abrir un ionAlert mediante un trigger -->
+  <ion-button color="primary" (click)="openOrCloseAlert()" expand="block"
+    >Open AlertConfirmation signal</ion-button
+  >
+  <ion-alert
+    [isOpen]="isAlertOpen()"
+    header="Alerta"
+    subHeader="Esta seguro de la Alerta?"
+    message="Si muestras la alerta, se mostrara"
+    [buttons]="alertButtons"
+  ></ion-alert>
+
+  <!--Abrir un ionAlert mediante un controlador -->
+  <ion-button color="primary" (click)="showAlert()" expand="block"
+    >Open AlertConfirmation AlertController</ion-button
+  >
+
+  <!--Abrir un ionAlert mediante un controlador -->
+  <ion-button color="primary" (click)="showAlertService()" expand="block"
+    >Open AlertConfirmation AlertServices
+    <ion-icon name="add-circle-outline"></ion-icon>
+  </ion-button>
+
+  <!--
+   <h2>Números</h2>
+  <p> positivo: {{ Positivos() }}  </p>
+  <p> negativo: {{ Negativos() }} </p>
+
+  <hr>
+  <h2>Operaciones</h2>
+  <p> Suma: {{ suma() }} </p>
+  <p> Resta: {{ resta() }} </p>
+  <p> Multiplicación: {{ multiplicacion() }} </p>
+  <p> División: {{ division() }}  </p>
+-->
+
+  <!--   
+  <ion-button slot="end" type="button" (click)="createUser()"
+    >Crear
+    <ion-icon name="add-circle-outline">Crear</ion-icon> 
+  </ion-button> 
+-->
+  <div>
+    <ion-button color="primary" (click)="createUser()">
+      <ion-icon name="add-circle-outline"></ion-icon>Crear
+    </ion-button>
+  </div>
+
+  @for (user of users(); track $index) {
+  <ion-item>
+    {{ user.names}}
+    <ion-button slot="end" type="button" (click)="getUser(user.id)">
+      <ion-icon name="chekmark-circle"></ion-icon> Ver
+    </ion-button>
+    <ion-button
+      color="warning"
+      slot="end"
+      type="button"
+      (click)="updateUser(user)"
+    >
+      <ion-icon name="open-outline"></ion-icon> Actualizar
+    </ion-button>
+    <ion-button
+      color="danger"
+      slot="end"
+      type="button"
+      (click)="deleteUser(user.id)"
+    >
+      <ion-icon name="trash-outline"></ion-icon>Borrar
+    </ion-button>
+  </ion-item>
+  }
+</ion-content>

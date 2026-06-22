@@ -28,6 +28,7 @@ import { EmailDto } from 'src/app/dtos/user/email.dto';
 import { identifierDto } from 'src/app/dtos/user/identifier.dto';
 import { EmailVerificationService } from 'src/app/services/user/email-verification.service';
 import { tokenDto } from 'src/app/dtos/user/token.dto';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-perfiles',
@@ -63,6 +64,8 @@ export class PerfilesPage {
   private readonly _emailVerification: EmailVerificationService = inject(
     EmailVerificationService
   );
+  private readonly _UserService: UserService = inject(UserService);
+  user = this._UserService.user;
 
   // create a FormGroup for the login form using the FormBuilder and assign it to a public property
   AcountForm: FormGroup = this._formBuilder.group({
@@ -122,7 +125,9 @@ export class PerfilesPage {
   // getters for the email and password form controls to easily access them in the template
   get isEmailRequired(): boolean {
     const emailControl = this.AcountForm.get('email');
-    identifierDto : {this.AcountForm.get('email') };
+    identifierDto: {
+      this.AcountForm.get('email');
+    }
     return emailControl
       ? emailControl.hasError('required') && emailControl.touched
       : false;
@@ -152,30 +157,30 @@ export class PerfilesPage {
     return this.AcountForm.valid;
   }
 
-   validarEmail(): void {
-    const dto = { email:  this.AcountForm.value.email };
-      this._emailVerification.verificarEmail(dto );
-      console.log(dto)
+  validarEmail(): void {
+    const dto = { email: this.AcountForm.value.email };
+    this._emailVerification.verificarEmail(dto);
+    console.log(dto);
   }
 
-   validarToken(): void {
-    const dto = { email: this.AcountForm.value.email, token: this.AcountForm.value.fcmToken };
-      this._emailVerification.verificarToken(dto );
-      console.log(dto)
+  validarToken(): void {
+    const dto = {
+      email: this.AcountForm.value.email,
+      token: this.AcountForm.value.fcmToken,
+    };
+    this._emailVerification.verificarToken(dto);
+    console.log(dto);
   }
 
   signIn(): void {
-
-
     if (this.isFormValid) {
       this.isLoading.set(true);
       const emailData: EmailDto = {
         method: 0,
         ...this.AcountForm.value,
-        
       };
-    
-     //this._emailVerification.verificarToken(emailData);
+
+      //this._emailVerification.verificarToken(emailData);
       this._emailVerification.CrearCuenta(emailData);
       this.isLoading.set(false);
     }
@@ -193,7 +198,9 @@ export class PerfilesPage {
       }, 20000); // Simulate a delay for the login process
     }
   }*/
-  constructor() {}
+  constructor() {
+    this._UserService.getUser();
+  }
 
   // ngOnInit() {}
 }

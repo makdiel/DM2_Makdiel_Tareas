@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HomePage } from './home.page';
+import { EditarPerfilPage } from './editar-perfil.page';
 
-describe('HomePage', () => {
-  let component: HomePage;
-  let fixture: ComponentFixture<HomePage>;
+describe('EditarPerfilPage', () => {
+  let component: EditarPerfilPage;
+  let fixture: ComponentFixture<EditarPerfilPage>;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomePage);
+    fixture = TestBed.createComponent(EditarPerfilPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { ToastService } from '../toast.service';
 import { UserDto } from 'src/app/dtos/user/user.dto';
 import { AlertService } from '../shared/alert.service';
+import { CameraService } from '../shared/camera.service';
 
 const API_URL = `${environment.API_URL}user`;
 //const API_URL: string =`${environment.API_URL}users`;
@@ -15,15 +16,17 @@ export class UserService {
   private readonly _httpClient: HttpClient = inject(HttpClient);
   private readonly _ToastService: ToastService = inject(ToastService);
   private readonly _AlertService: AlertService = inject(AlertService);
+  private readonly _CameraService : CameraService = inject(CameraService);
 
   users: WritableSignal<UserDto[]> = signal([]);
 
   user: WritableSignal<UserDto | null> = signal(null);
 
-  getUsers(): void {
-    this._httpClient.get<UserDto[]>(API_URL).subscribe({
-      next: (response: UserDto[]) => {
-        this.users.set(response);
+  getUser(): void {
+    this._httpClient.get<UserDto>(API_URL).subscribe({
+      next: (response: UserDto) => {
+        this.user.set(response);
+        console.log(response);
       },
       error: async () => {
         await this._ToastService.showToast(
@@ -33,7 +36,7 @@ export class UserService {
       },
     });
   }
-
+/*
   getUser(id: number): void {
     this._httpClient.get<UserDto>(`${API_URL}/${id}`).subscribe({
       next: (response: UserDto) => {
@@ -45,7 +48,7 @@ export class UserService {
       },
     });
   }
-
+*/
   confirmDeleteUser(id: number): void {
     this._AlertService.showAlertConfirmation(
       () => this.deleteUser(id),

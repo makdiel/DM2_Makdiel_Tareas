@@ -1,6 +1,6 @@
 import {
   WebPlugin
-} from "./chunk-6N3Y4XHO.js";
+} from "./chunk-ZFBT5HPC.js";
 import {
   __async
 } from "./chunk-WDMUDEB6.js";
@@ -93,4 +93,4 @@ var PreferencesWeb = class extends WebPlugin {
 export {
   PreferencesWeb
 };
-//# sourceMappingURL=web-OK4ALFCC.js.map
+//# sourceMappingURL=web-R7LKVEHE.js.map
