@@ -3,11 +3,11 @@
   <component name="deploymentTargetSelector">
     <selectionStates>
       <SelectionState runConfigName="app">
-        <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2026-06-03T23:52:50.672115300Z">
+        <option name="selectionMode" value="DIALOG" />
+        <DropdownSelection timestamp="2026-06-23T01:03:03.669430300Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="Default" identifier="serial=emulator-5554;connection=5eb147ad" />
+              <DeviceId pluginId="PhysicalDevice" identifier="serial=R5CW33HPCSL" />
             </handle>
           </Target>
         </DropdownSelection>
@@ -15,12 +15,12 @@
           <targets>
             <Target type="DEFAULT_BOOT">
               <handle>
-                <DeviceId pluginId="Default" identifier="serial=emulator-5554;connection=5eb147ad" />
+                <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\makdi\.android\avd\Pixel_Fold_API_35.avd" />
               </handle>
             </Target>
             <Target type="DEFAULT_BOOT">
               <handle>
-                <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\makdi\.android\avd\Pixel_Fold_API_35.avd" />
+                <DeviceId pluginId="PhysicalDevice" identifier="serial=R5CW33HPCSL" />
               </handle>
             </Target>
           </targets>

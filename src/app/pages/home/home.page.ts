@@ -81,6 +81,9 @@ export class HomePage {
   }
 
 */
+  getUser(): void {
+    this._userService.getUser();
+  }
 
   deleteUser(id: number): void {
     this._userService.confirmDeleteUser(id);

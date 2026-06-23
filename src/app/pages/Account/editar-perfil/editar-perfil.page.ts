@@ -4,6 +4,7 @@ import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angu
 import { IonContent, IonHeader, IonTitle, IonToolbar,IonButton,IonInput,IonLabel,IonNote,IonSpinner,IonText, IonItem, IonImg } from '@ionic/angular/standalone';
 import { UserService } from 'src/app/services/user/user.service';
 import { CameraService } from 'src/app/services/shared/camera.service';
+import { CloudinaryService } from 'src/app/services/shared/cloudinary.service';
 
 @Component({
   selector: 'app-editar-perfil',
@@ -14,6 +15,7 @@ import { CameraService } from 'src/app/services/shared/camera.service';
 })
 export class EditarPerfilPage {
   private readonly _cameraService: CameraService = inject(CameraService);
+  private readonly _cloudinaryService : CloudinaryService = inject(CloudinaryService)
   private readonly _formBuilder : FormBuilder = inject(FormBuilder);
   private readonly _userService : UserService = inject(UserService);
   defaultAvatar = 'assets/icon.jpg';
@@ -75,6 +77,7 @@ export class EditarPerfilPage {
           surnames: user.surnames,
           address: user.address,
         });
+        this.profileImage.set(user.imageProfile || this.defaultAvatar);
       }
 
     })
@@ -85,6 +88,11 @@ export class EditarPerfilPage {
         this.profileImage.set(photo);
       }
     });
+  }
+
+  savePerfil(): void {
+    if(!this.isFormValid) return ;
+    
   }
 
 }

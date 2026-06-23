@@ -20,4 +20,20 @@
       <ion-title size="large">home</ion-title>
     </ion-toolbar>
   </ion-header>
+  
+   @for (user of users(); track $index) {
+  <ion-item>
+    {{ user.names}}
+   
+    <ion-button
+      color="warning"
+      slot="end"
+      type="button"
+      (click)="updateUser(user)"
+    >
+      <ion-icon name="open-outline"></ion-icon> Actualizar
+    </ion-button>
+   
+  </ion-item>
+  }
 </ion-content>

@@ -97,7 +97,7 @@ export class HomePage {
   ];
 
   getUser(id: number): void {
-    this._userService.getUser(id);
+    this._userService.getUser();
   }
 
   /* getUsers(): void {
@@ -130,7 +130,7 @@ export class HomePage {
   }
 
   constructor(private actionSheetCtrl: ActionSheetController) {
-    this._userService.getUsers(),
+   // this._userService.getUsers(),
       addIcons({
         'chekmark-circle': checkmarkCircle,
         'close-circle': closeCircle,
